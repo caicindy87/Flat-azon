@@ -1,2 +1,5 @@
 <h1><%= @user.first_name %> Profile</h1>
-<%= session[:user_id] %>
+
+
+
+<%= link_to 'Logout', logout_path, method: :delete  %>

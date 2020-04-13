@@ -1,0 +1,11 @@
+<h1>Welcome to Flat-azon!</h1>
+<h1><%= session[:user_id] %></h1>
+<%= form_tag login_path do %>
+    <label>Username: </label>
+    <%= text_field_tag :username%>
+    <br>
+    <br>
+    <label>Password: </label>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Login" %>
+<% end %>
