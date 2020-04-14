@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             flash[:success] = 'You loged in'
             redirect_to @user
         else
-            flasf[:error] = 'Invalid credentials'
+            flash[:error] = 'Invalid credentials'
             redirect_to root_path
         end
     end
