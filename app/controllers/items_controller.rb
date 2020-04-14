@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     end
 
     def update
-        if session[:user_id] == @item.user_id
+        # if session[:user_id] == @item.user_id
             if @item.valid?
                 @item.update(item_params)
                 @item.save
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
             else
               render :edit
             end
-        end
+        # end
     end
 
     private
