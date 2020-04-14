@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
     before_action :find_item, only: [:show, :edit, :update]
     before_action :authorized, except: [:show]
     before_action :current_user, except: [:show] 
-    before_action :check_user, only: [:edit, :update]
+    before_action :check_item_user, only: [:edit, :update]
 
     def new
         @item = Item.new

@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-4">
     <% if obj.errors.any?%>
+    <h5>Errors: </h5>
       <ul class="list-group list-group-flush">
         <% obj.errors.full_messages.each do |err|%>
           <li class="list-group-item"><span><%= fa_icon "exclamation" %></span> <%= err %></li>
@@ -8,4 +8,3 @@
       </ul>
     <% end %>
   </div>
-</div>
