@@ -1,3 +1,4 @@
+<%= render partial: 'shared/error', locals: { obj: user }%>
 <%= form_for user do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %><br>
@@ -15,7 +16,7 @@
     <%= f.text_field :last_name %><br>
 
     <%= f.label :email %>
-    <%= f.text_field :email %><br>
+    <%= f.email_field :email %><br>
 
     <%= f.label :address %>
     <%= f.text_area :address %><br>
