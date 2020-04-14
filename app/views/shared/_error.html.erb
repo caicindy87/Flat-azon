@@ -1,7 +1,11 @@
-<% if obj.errors.any?%>
-  <ul>
-    <% obj.errors.full_messages.each do |err|%>
-        <li><%= err %></li>
+<div class="row">
+  <div class="col-md-4">
+    <% if obj.errors.any?%>
+      <ul class="list-group list-group-flush">
+        <% obj.errors.full_messages.each do |err|%>
+          <li class="list-group-item"><span><%= fa_icon "exclamation" %></span> <%= err %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+</div>
