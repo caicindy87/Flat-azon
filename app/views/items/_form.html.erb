@@ -1,0 +1,23 @@
+<%= form_for item do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %><br>
+    
+    <%= f.label :price %><br>
+    <%= f.number_field :price %><br>
+
+    <%= f.label :description %><br>
+    <%= f.text_field :description %><br>
+
+    <%= f.label :picture %><br>
+    <%= f.text_field :picture %><br>
+
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name %><br>
+
+    <%= f.hidden_field :user_id, value: current_user.id %><br>
+
+    <%= f.submit "Add Item" %>
+<% end %>
