@@ -1,7 +1,22 @@
 @import "bootstrap";
 @import "toastr";
 @import "font-awesome";
-
 a {
   text-decoration: none;
 }
+
+#login-form {
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+#signup-form {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.toast-top-center {
+  top: 20px;
+  margin: 0 auto;
+}
+
+

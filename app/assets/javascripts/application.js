@@ -18,4 +18,19 @@
 //= require toastr
 //= require_tree .
 
+// toastr.options.timeOut = 1000;
+// toastr.options.preventDuplicates = true;
+// toastr.options.newestOnTop = false;
+// toastr.options.closeButton = true;
+// toastr.positionClass = "toast-top-center";
 
+
+toastr.options = {
+    "debug": false,
+    "positionClass": "toast-bottom-full-width",
+    "onclick": null,
+    "fadeIn": 300,
+    "fadeOut": 400,
+    "timeOut": 1000,
+    "extendedTimeOut": 1000
+}
