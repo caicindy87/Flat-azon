@@ -24,6 +24,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.update(user_params)
+    if @user.valid?
+      @user.save
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   private
