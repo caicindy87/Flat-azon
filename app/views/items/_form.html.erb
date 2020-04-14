@@ -17,5 +17,7 @@
     <%= f.label :category_id %><br>
     <%= f.collection_select :category_id, Category.all, :id, :name %><br>
 
+    <%= f.hidden_field :user_id, value: current_user.id %><br>
+
     <%= f.submit "Add Item" %>
 <% end %>

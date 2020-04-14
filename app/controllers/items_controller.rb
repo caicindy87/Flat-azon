@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
     before_action :find_item, only: [:show, :edit, :update]
-    before_action :require_login
+    before_action :current_user, except: [:show] 
+    before_action :authorized, except: [:show]
 
     def new
         @item = Item.new
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
     end
 
     def update
-        byebug
+        # byebug
         if session[:user_id] == @item.user_id
             if @item.valid?
                 @item.update(item_params)
@@ -37,18 +38,13 @@ class ItemsController < ApplicationController
     end
 
     private
-    def require_login
-        unless session.include? :user_id
-            flash[:error] = "You must be logged in to see this section"
-            redirect_to login_path
-        end
-    end
 
     def find_item
         @item = Item.find(params[:id])
     end
 
     def item_params
-        params.require(:item).permit(:name, :quantity, :price,:description, :picture, :category_id, user_id: session[:user_id])
+        # byebug
+        params.require(:item).permit(:name, :quantity, :price,:description, :picture, :category_id, :user_id)
     end
 end
