@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
     end
 
     def update
-        # byebug
         if session[:user_id] == @item.user_id
             if @item.valid?
                 @item.update(item_params)
@@ -44,7 +43,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-        # byebug
         params.require(:item).permit(:name, :quantity, :price,:description, :picture, :category_id, :user_id)
     end
 end
