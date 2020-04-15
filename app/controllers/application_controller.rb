@@ -16,20 +16,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_item_user
-    @user_id = Item.find(params[:id]).user_id
-    if !(@user_id == current_user.id)
-      flash[:error] = "Not authorized to edit this item"
-      redirect_to item_path(params[:id])
-    end
-  end
-
-  def check_user
-    @user_id = User.find(params[:id]).id
-    if !(@user_id == current_user.id)
-      flash[:error] = "Not authorized to edit this account"
-      redirect_to user_path(params[:id])
-    end
-  end
-
 end
