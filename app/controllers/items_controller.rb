@@ -48,6 +48,6 @@ class ItemsController < ApplicationController
   end
 
   def same_user_item
-    not_authorized(@item, 'Not authorized to edit this item')
+    not_authorized(@item, @item.user_id, 'Not authorized to edit this item')
   end
 end

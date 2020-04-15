@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def not_authorized(obj, message)
-    unless current_user.id == obj.user_id
+  def not_authorized(obj, id, message)
+    unless current_user.id == id
       flash[:error] = message
       redirect_to obj
     end
