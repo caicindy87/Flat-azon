@@ -1,6 +1,6 @@
-<h1><%= @item.name %> </h1>
+<h1><%= @item.name.capitalize %> </h1>
 
-<img src="<%= @item.picture %>" width = "300", height = "200">
+<img src="<%= @item.picture %>">
 <br>
 <h3>$<%= @item.price%></h3>
 <h4>Number in Inventory: <%= @item.quantity %></h4>
