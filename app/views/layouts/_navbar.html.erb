@@ -5,26 +5,33 @@
   </button>
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
+      <!--      Items that need authenticated user to be available on front end-->
       <li class="nav-item">
-      <%= link_to 'Create a Listing', new_item_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
         <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Categories</a>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Login', login_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         current_user_options
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">My Profile</a>
-          <a class="dropdown-item" href="#">My Orders</a>
-        </div>
+
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to 'Create a Listing', new_item_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'My profile', current_user, class: 'dropdown-item' %>
+            <a class="dropdown-item" href="#">My Orders</a>
+            <hr>
+            <%= link_to 'Sign out', logout_path, method: 'delete', class: 'dropdown-item' %>
+          </div>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Login', login_path, class: 'nav-link' %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

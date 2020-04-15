@@ -1,5 +1,14 @@
 <h1><%= @user.first_name.capitalize %> Profile</h1>
-<img src="<%= @user.profile_pic %>">
+<% if @user.profile_pic %>
+  <img src="<%= @user.profile_pic %>">
+<% else %>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-5 avatar">
+      <%= gravatar_for @user, size: 300 %>
+    </div>
+  </div>
+<% end %>
+
 <br>
 <%= link_to 'Edit Account', edit_user_path %><br>
-<%= link_to 'Logout', logout_path, method: :delete  %>
+<%= link_to 'Logout', logout_path, method: :delete %>
