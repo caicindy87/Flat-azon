@@ -1,14 +1,12 @@
-
 <div class="row">
   <div class="card col-md-6" id="signup-form">
     <div class="card-block">
       <div class="card-body">
-        <h2 class="text-center">Create Account!</h2>
+        <h2 class="text-center"><%= user.new_record? ? 'Create account' : 'Update account' %></h2>
         <%= form_for user do |f| %>
           <div class="form-group">
             <%= f.text_field :username, class: 'form-control', placeholder: 'Enter username' %><br>
           </div>
-
 
           <div class="form-group">
             <%= f.text_field :first_name, class: 'form-control', placeholder: 'Enter first name' %><br>
@@ -41,7 +39,7 @@
           <div class="form-group">
             <%= f.submit user.new_record? ? 'Create account' : 'Update account', class: 'btn btn-primary btn-block' %>
           </div>
-          <p><%= link_to 'Already have an account? login in', login_path %></p>
+          <p><%= link_to 'Already have an account? login in', login_path unless current_user %></p>
         <% end %>
       </div>
     </div>
