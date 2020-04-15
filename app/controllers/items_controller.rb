@@ -9,8 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-
+    @item = current_user.items.build(item_params)
     if @item.valid?
       @item.save
       redirect_to @item
@@ -26,9 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.valid?
-      @item.update(item_params)
-      @item.save
+    if @item.update(item_params)
       redirect_to @item
     else
       render :edit
@@ -48,14 +45,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :quantity, :price, :description, :picture, :category_id, :user_id)
-  end
-
-  def check_item_user
-    @user_id = Item.find(params[:id]).user_id
-    if !(@user_id == current_user.id)
-      flash[:error] = "Not authorized to edit this item"
-      redirect_to item_path(params[:id])
-    end
   end
 
   def same_user_item
