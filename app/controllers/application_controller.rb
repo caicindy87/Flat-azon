@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    @user_id = User.find(params[:id]).user_id
+    @user_id = User.find(params[:id]).id
     if !(@user_id == current_user.id)
       flash[:error] = "Not authorized to edit this account"
       redirect_to user_path(params[:id])

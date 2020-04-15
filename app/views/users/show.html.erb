@@ -1,4 +1,4 @@
-<h1><%= @user.first_name %> Profile</h1>
+<h1><%= @user.first_name.capitalize %> Profile</h1>
 <img src="<%= @user.profile_pic %>">
 <br>
 <%= link_to 'Edit Account', edit_user_path %><br>
