@@ -45,6 +45,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :profile_pic, :password, :password_confirmation)
   end
 
+  # def same_user
+  #   not_authorized(@user, 'Not authorized to edit this account')
+  # end
+
   def check_user
     @user_id = User.find(params[:id]).id
     if !(@user_id == current_user.id)

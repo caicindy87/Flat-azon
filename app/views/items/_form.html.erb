@@ -1,3 +1,4 @@
+<%= render partial: 'shared/error', locals: { obj: item } %>
 <%= form_for item do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
@@ -12,12 +13,10 @@
     <%= f.text_field :description %><br>
 
     <%= f.label :picture %><br>
-    <%= f.text_field :picture %><br>
+    <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
 
     <%= f.label :category_id %><br>
     <%= f.collection_select :category_id, Category.all, :id, :name %><br>
-
-    <%= f.hidden_field :user_id, value: current_user.id %><br>
 
     <%= f.submit %>
 <% end %>
