@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :same_user]
   before_action :authorized, except: [:new, :create]
-  before_action :check_user, only: [:edit, :update]
+  before_action :same_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -45,15 +45,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :profile_pic, :password, :password_confirmation)
   end
 
-  # def same_user
-  #   not_authorized(@user, 'Not authorized to edit this account')
-  # end
-
-  def check_user
-    @user_id = User.find(params[:id]).id
-    if !(@user_id == current_user.id)
-      flash[:error] = "Not authorized to edit this account"
-      redirect_to user_path(params[:id])
-    end
+  def same_user
+    not_authorized(@user, @user.id, 'Not authorized to edit this account')
   end
+  
 end

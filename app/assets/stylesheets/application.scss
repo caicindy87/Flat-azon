@@ -1,13 +1,19 @@
 @import "bootstrap";
 @import "toastr";
 @import "font-awesome";
+@import "./users.scss";
+@import "./items.scss";
+
+
 a {
   text-decoration: none;
 }
 
 img {
-  height: 50%;
-  width: 50%;
+  height: 200px;
+  width: 300px;
+  margin: 0 auto;
+
 }
 
 #login-form {
