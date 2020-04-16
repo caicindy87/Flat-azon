@@ -1,10 +1,10 @@
 class CartItemsController < ApplicationController
-    before_action :set_cart, only: [:create, :destroy]
+  before_action :set_cart, only: [:create, :destroy]
 
-    def create
-        
-    end
+  def create
+    @cart_item = CartItem.new(cart_id: @cart.id)
+  end
 
-    def destroy
-    end
+  def destroy
+  end
 end

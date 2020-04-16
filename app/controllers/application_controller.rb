@@ -24,4 +24,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_cart
+    if current_user.carts.length <= 1
+        @cart = Cart.find_or_create_by(user_id: current_user.id)
+    elsif current_user.carts.length > 1 
+        @cart = current_user.carts.last
+    end
+  end
+
 end
