@@ -7,7 +7,7 @@
         <p class="align-center card-text"> 
         <u>Item Description</u> <br>
         <%=@item.description%> 
-        <a href="" name="Add to cart a>
+        <%= button_to 'Add to Cart', cart_items_path(item_id: @item.id) %>
         </p>
     </div>
  </div>

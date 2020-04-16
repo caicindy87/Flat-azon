@@ -3,6 +3,7 @@
 @import "font-awesome";
 @import "./users.scss";
 @import "./items.scss";
+@import "./home.scss";
 
 
 a {
@@ -37,6 +38,7 @@ img {
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
 .img-fluid{
   width: 500px;
   height: 300px;
@@ -48,5 +50,15 @@ img {
 
 .card-text{
   text-align: center;
+=======
+// Home page
+.welcome {
+  margin: 30px auto;
+>>>>>>> bffbed7d55eb9c7d7d65ee4faa5f36f552965bc3
 }
 
+// Profile page
+.jumbotron { 
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
