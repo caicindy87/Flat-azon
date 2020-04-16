@@ -20,8 +20,8 @@
         <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
 
         <%= f.label :category_id %><br>
-        <%= f.collection_select :category_id, Category.all, :id, :name %><br>
-
+        <%= f.collection_select :category_id, Category.all, :id, :name, {class: "form-control"} %><br>
+        <br>
         <%= f.submit %>
     <% end %>
 </form>
