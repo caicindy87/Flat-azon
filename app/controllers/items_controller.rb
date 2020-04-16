@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
   end
 
   def search
-    params.inspect
     if params[:search].blank?
       redirect_to login_path
     else
