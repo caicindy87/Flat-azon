@@ -1,15 +1,14 @@
-<h1><%= @item.name %> </h1>
-<img src="<%= @item.picture %>">
-<br>
-<h3>$<%= @item.price%></h3>
-<h4>Number in Inventory: <%= @item.quantity %></h4>
-<br>
-<br>
-<h4>Description:</h4>
-<%= @item.description %>
-
-<br>
-<br>
-
-<%= button_to 'Add to Cart', cart_items_path(item_id: @item.id) %>
-
+<div class="card mt-4">
+    <div class="card-header"> <h1><%= @item.name %> - $<%=@item.price%></h1>
+    </div>
+    <img class="card-img-top img-fluid" src="<%= @item.picture %>" alt="">
+        <div class="card-body">
+        <h2><%=@item.quantity%> in stock! </h2>
+        <p class="align-center card-text"> 
+        <u>Item Description</u> <br>
+        <%=@item.description%></p>
+        <div class="text-center">
+        <%= button_to 'Add to Cart', cart_items_path(item_id: @item.id), class: "center" %>
+        </div>
+    </div>
+ </div>
