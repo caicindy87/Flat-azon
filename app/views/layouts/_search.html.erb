@@ -1,0 +1,4 @@
+<%= form_tag search_item_path, method: :get, class: 'form-inline my-lg-2' do %>
+  <%= text_field_tag :search,nil, placeholder: 'Search...', class: 'form-control' %>
+  <%= submit_tag 'Search', class: 'btn btn-outline-success' %>
+<% end %>

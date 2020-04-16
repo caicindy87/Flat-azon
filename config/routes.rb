@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
 
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
+  get '/search' => 'items#search', :as => 'search_item'
 end
