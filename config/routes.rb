@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :update, :destroy]
   
   get '/search' => 'items#search', :as => 'search_item'
+
+  get '/', to: 'home#show'
 end

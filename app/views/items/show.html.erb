@@ -12,4 +12,4 @@
 <br>
 <br>
 
-<%= button_to "Add to Cart", {controller: 'cart_items', action: 'create', item_id: @item.id }, method: 'post' %>
+<%= button_to "Add to Cart", cart_items_path, params: { item_id: @item.id } %>

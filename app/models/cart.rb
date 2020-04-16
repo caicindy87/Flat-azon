@@ -8,7 +8,7 @@ class Cart < ApplicationRecord
       current_item.quantity += 1
       current_item.save
     else
-      new_item = CartItem.create(cart_id: self.id, item_id: cart_item_params[:cart_item][:item_id], quantity: 1)
+      new_item = CartItem.create!(cart_id: self.id, item_id: cart_item_params[:cart_item][:item_id], quantity: 1)
     end
     new_item
   end
