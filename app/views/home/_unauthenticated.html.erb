@@ -2,29 +2,26 @@
 <div class="row welcome text-center">
   <div class="col-12">
     <h1 class="display-4">New Items</h1>
+    <hr>
   </div>
-  <hr>
   <div class="col-12">
   </div
 </div>
 </div>
 
 <div class="container-fluid">
-  <div>
-    <div class="row">
-      <% @items.last(8).each do |item| %>
-        <div class="col-md-3 mt-5">
-          <div class="card">
-          <img class="card-img-top" src="<%= item.picture %>" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"> $<%= item.price %> </h6>
-            </div>
+  <div class="row">
+    <% @items.last(8).each do |item| %>
+      <div class="col-md-3 mt-5">
+        <div class="card">
+        <img class="card-img-top" src="<%= item.picture %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"> $<%= item.price %> </h6>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-
 </div>
   
