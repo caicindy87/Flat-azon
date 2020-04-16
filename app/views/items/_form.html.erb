@@ -1,8 +1,7 @@
 <%= render partial: 'shared/error', locals: { obj: item } %>
 
-
 <form>
-<h2 class="text-center"><%= item.new_record? ? 'Add Item account' : 'Update Item' %></h2>
+<h2 class="text-center"><%= item.new_record? ? 'Add Item' : 'Update Item' %></h2>
     <%= form_for item do |f| %>
         <%= f.label :name %><br>
         <%= f.text_field :name, class: 'form-control', placeholder: 'Item name' %><br>
@@ -20,7 +19,7 @@
         <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
 
         <%= f.label :category_id %><br>
-        <%= f.collection_select :category_id, Category.all, :id, :name, {class: "form-control"} %><br>
+        <%= f.collection_select :category_id, Category.all, :id, :name, {class: "custom-select"} %><br>
         <br>
         <%= f.submit %>
     <% end %>
