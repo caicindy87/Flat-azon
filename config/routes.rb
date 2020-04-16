@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#show'
 
   resources :users, except: [:new, :index, :destroy]
 
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
   
   get '/search' => 'items#search', :as => 'search_item'
 
-  get '/', to: 'home#show'
+
 end
