@@ -1,16 +1,16 @@
 class Cart < ApplicationRecord
-  belongs_to :user_id
+  belongs_to :user
   has_many :cart_items
 
-  def add_item(cart_item_params)
-    current_item = CartItem.find_by(item_id: cart_item_params[:cart_item][:item_id])
+  def add_item(item)
+    current_item = cart_items.find_by(item_id: item.id)
     if current_item
       current_item.quantity += 1
       current_item.save
     else
-      new_item = CartItem.create!(cart_id: self.id, item_id: cart_item_params[:cart_item][:item_id], quantity: 1)
+      current_item = cart_items.build(item_id: item.id)
+      current_item.save
     end
-    new_item
+    current_item
   end
-
 end

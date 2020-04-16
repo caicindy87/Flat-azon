@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user
+  helper_method :current_user, :set_cart, :cart
 
   def logged_in?
     !!current_user
@@ -24,19 +24,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def set_cart
-  #   if current_user.carts.length <= 1
-  #       @cart = Cart.find_or_create_by(user_id: current_user.id)
-  #   elsif current_user.carts.length > 1 
-  #       @cart = current_user.carts.last
-  #   end
-  # end
-
   def set_cart
     @cart = Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
-    @cart = Cart.create
+    puts "Found cart session for cart with an id of: #{@cart.id}"
+  rescue ActiveRecord::RecordNotFound
+    @cart = current_user.carts.create
     session[:cart_id] = @cart.id
+    puts "Creating a new cart session with an id of:  #{@cart.id}"
+  end
+
+  def cart
+    @cart
   end
 
 end
