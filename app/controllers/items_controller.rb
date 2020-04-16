@@ -37,6 +37,15 @@ class ItemsController < ApplicationController
     redirect_to categories_path
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to login_path
+    else
+      @query = params[:search].downcase
+      @results = Item.where("lower(name) LIKE :query", query: "%#{@query}%")
+    end
+  end
+
   private
 
   def find_item
