@@ -3,6 +3,7 @@
 @import "font-awesome";
 @import "./users.scss";
 @import "./items.scss";
+@import "./home.scss";
 
 
 a {
@@ -37,4 +38,13 @@ img {
   border-radius: 50%;
 }
 
+// Home page
+.welcome {
+  margin: 30px auto;
+}
 
+// Profile page
+.jumbotron { 
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

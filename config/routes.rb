@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get '/signup', to: 'users#new'
   resources :users, except: [:new, :index, :destroy]
+
+  get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
@@ -9,5 +10,12 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
 
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
+
+  resources :carts, only: [:show, :create, :update]
+
+  resources :cart_items, only: [:create, :update, :destroy]
+  
   get '/search' => 'items#search', :as => 'search_item'
+
+  get '/', to: 'home#show'
 end
