@@ -1,5 +1,4 @@
 <h1><%= @item.name %> </h1>
-
 <img src="<%= @item.picture %>">
 <br>
 <h3>$<%= @item.price%></h3>
@@ -12,4 +11,4 @@
 <br>
 <br>
 
-<%= button_to "Add to Cart", {controller: 'cart_items', action: 'create', item_id: @item.id }, method: 'post' %>
+<%= button_to 'Add to Cart', cart_items_path(item_id: @item.id) %>

@@ -2,8 +2,10 @@ class CartItemsController < ApplicationController
   before_action :set_cart, only: [:create, :destroy]
 
   def create
-    # byebug
-    @cart.add_item(cart_item_params)
+    item = Item.find(params[:item_id])
+    @cart_item = @cart.add_item(item)
+    flash[:success] = "#{item.name} added to the cart"
+    redirect_to item
   end
 
   def destroy

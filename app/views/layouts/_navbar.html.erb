@@ -5,7 +5,6 @@
   </button>
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
-
       <!--      Items that need authenticated user to be available on front end-->
       <li class="nav-item">
         <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
@@ -13,11 +12,25 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Categories</a>
       </li>
-
       <% if current_user %>
         <li class="nav-item">
           <%= link_to 'Create a Listing', new_item_path, class: 'nav-link' %>
         </li>
+        <% if current_user.carts.count > 0 %>
+          <% if current_user.carts.last.cart_items.any? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= fa_icon "shopping-cart 1x" %> <%= current_user.carts.last.cart_items.count %>
+              </a>
+              <div class="dropdown-menu">
+                <% current_user.carts.last.cart_items.each do |item| %>
+                  <%= link_to item.item.name, item.item, class: 'dropdown-item' %> <%= item.quantity %>
+                  <hr>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.username.capitalize %>
