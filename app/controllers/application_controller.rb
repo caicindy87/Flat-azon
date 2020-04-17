@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :set_cart, :cart
+  helper_method :current_user, :set_cart, :logged_in?
+  rescue_from ActiveRecord::RecordNotFound, with: :item_not_found
 
   def logged_in?
     !!current_user
@@ -37,4 +38,12 @@ class ApplicationController < ActionController::Base
     @cart
   end
 
+  def route_not_found
+    render file: Rails.public_path.join('404.html.erb'), status: :not_found, layout: false
+  end
+
+  def item_not_found
+    flash[:error] = "Item doesn't exist in the database"
+    redirect_to root_path
+  end
 end
