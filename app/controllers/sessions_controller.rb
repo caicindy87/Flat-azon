@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     session[:cart_id] = nil
     flash[:success] = "You logged out"
-    redirect_to login_path
+    redirect_to root_path
   end
 end

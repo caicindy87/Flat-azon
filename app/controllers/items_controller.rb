@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy, :same_user_item]
-  before_action :authorized, except: [:show]
-  # before_action :current_user, except: [:show]
+  before_action :authorized, except: [:show, :search]
   before_action :same_user_item, only: [:edit, :update]
 
   def new
@@ -59,4 +58,6 @@ class ItemsController < ApplicationController
   def same_user_item
     not_authorized(@item, @item.user_id, 'Not authorized to edit this item')
   end
+
+
 end

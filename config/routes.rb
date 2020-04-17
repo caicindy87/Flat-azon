@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   post 'create', to: 'checkout#create', as: 'checkout_create'
   get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
   get 'success', to: 'checkout#success', as: 'checkout_success'
-
+  match '*unmatched', to: 'application#route_not_found', via: :all
 
 end
