@@ -14,7 +14,7 @@
         <%= f.text_area :description, class: 'form-control', placeholder: 'Description'%><br>
 
         <%= f.label :picture %><br>
-        <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
+        <%= f.text_field :picture, class: 'form-control', placeholder: 'Picture url that ends with png or jpeg'%><br>
 
         <%= f.label :category_id %><br>
         <%= f.collection_select :category_id, Category.all, :id, :name %><br>

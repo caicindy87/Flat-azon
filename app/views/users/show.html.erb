@@ -1,21 +1,23 @@
 <div class="jumbotron container-fluid">
-  <h1><%= @user.first_name.capitalize %> Profile <%= link_to 'Edit Account', edit_user_path, class:"btn btn-primary btn-sm" %></h1>
-</div>
-
-<div class="profile-pic">
-  <% if @user.profile_pic %>
-    <img src="<%= @user.profile_pic %>" alt="profile picture">
-  <% else %>
-    <div class="row">
-      <div class="col-md-5 col-md-offset-5 avatar">
-        <%= gravatar_for @user, size: 300 %>
+  <div class="image-cropper">
+    <% if @user.profile_pic %>
+      <img src="<%= @user.profile_pic %>" alt="profile picture" class="profile-pic">
+    <% else %>
+      <div class="row">
+        <div class="col-md-5 col-md-offset-5 avatar">
+          <%= gravatar_for @user, size: 300 %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="profile-heading">
+    <h1><%= @user.first_name.capitalize %>'s Profile </h1>
+    <%= link_to 'Edit Account', edit_user_path, class:"btn btn-primary btn-sm" %>
+  </div>
 </div>
 
 <div class="container-fluid">
-  <h2>My Listings</h2>
+  <h3>My Listings</h3>
   <div class="row">
     <% current_user.items.each do |item| %>
       <div class="col-md-3 mt-5">

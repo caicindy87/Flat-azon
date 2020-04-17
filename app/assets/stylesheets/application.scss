@@ -57,9 +57,32 @@ img {
 
 // Profile page
 .jumbotron { 
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+
 .cart-item{
   font-size: 20px;
+}
+
+.image-cropper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0px auto;
+}
+
+.profile-pic {
+display: inline;
+margin: 0 auto;
+margin-left: -25%; //centers the image
+height: 100%;
+width: auto;
+}
+
+.profile-heading {
+  text-align: center;
+
 }
