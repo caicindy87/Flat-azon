@@ -9,6 +9,7 @@
           <th>Name</th>
           <th>Quantity</th>
           <th>Price</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
             <td><%= cart_item.item.name %></td>
             <td>x<%= cart_item.quantity %></td>
             <td><%= cart_item.item.price %></td>
+            <td><%= button_to "Remove Item", '/cart_items/cart_item.id', method: 'delete', params: { cart_item_id: cart_item.id }, class:"btn btn-secondary" %></td>
           </tr>
         <% end %>
         </tbody>
