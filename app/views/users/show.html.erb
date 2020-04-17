@@ -26,7 +26,6 @@
           <div class="card-body">
             <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
             <h6 class="card-subtitle mb-2 text-muted"> $<%= item.price %> </h6>
-            <p class="card-text"><%= item.description %></p>
             <a href="/items/<%= item.id %>/edit" class="btn btn-primary">Edit Item</a>
           </div>
         </div>
