@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
   def search
     if params[:search].blank?
-      redirect_to login_path
+      redirect_to root_path
     else
       @query = params[:search].downcase
       @results = Item.where("lower(name) LIKE :query", query: "%#{@query}%")
