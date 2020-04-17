@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
   before_action :authorized, except: [:index, :show, :search]
   before_action :same_user_item, only: [:edit, :update]
 
+  def index
+    @items = Item.all
+  end
+
   def new
     @item = Item.new
   end
@@ -33,12 +37,12 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.delete
-    redirect_to categories_path
+    redirect_to user_path(current_user)
   end
 
   def search
     if params[:search].blank?
-      redirect_to login_path
+      redirect_to root_path
     else
       @query = params[:search].downcase
       @results = Item.where("lower(name) LIKE :query", query: "%#{@query}%")
