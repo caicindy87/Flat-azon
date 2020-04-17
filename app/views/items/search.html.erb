@@ -12,8 +12,8 @@
               <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
               <h6 class="card-subtitle mb-2 text-muted"> $<%= item.price %> </h6>
               <p class="card-text"><%= item.description %></p>
-              <% if current_user.id == item.user_id %>
-                <a href="/items/<%= item.id %>/edit" class="btn btn-primary">Edit Item</a>
+              <% if logged_in? && current_user.id == item.user_id %>
+                <%= link_to 'Edit Item', edit_item_path(item), class: 'btn btn-primary' %>
               <% end %>
             </div>
           </div>
