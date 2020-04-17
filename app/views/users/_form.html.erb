@@ -1,9 +1,8 @@
-<div class="row">
   <div class="col-md-4 mx-auto">
     <%= render partial: 'shared/error', locals: {obj: user} %>
   </div>
 
-  <div class="card col-sm-9 col-md-9 col-lg-9" id="signup-form">
+  <div class="card col-sm-9 col-md-9 col-lg-6" id="signup-form">
     <div class="card-block">
       <div class="card-body">
         <h2 class="text-center"><%= user.new_record? ? 'Create account' : 'Update account' %></h2>
@@ -51,6 +50,5 @@
     </div>
   </div>
   
-</div>
 
 
