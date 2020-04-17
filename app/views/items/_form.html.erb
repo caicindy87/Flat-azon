@@ -16,7 +16,7 @@
     <%= f.text_area :description, class: 'form-control', placeholder: 'Description'%><br>
 
     <%= f.label :picture %><br>
-    <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
+    <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br><br>
 
     <%= f.label :category_id %><br>
     <%= f.collection_select :category_id, Category.all, :id, :name, {class: "custom-select"} %><br>
