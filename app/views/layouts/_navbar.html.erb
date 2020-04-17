@@ -7,7 +7,7 @@
     <ul class="navbar-nav">
       <!--      Items that need authenticated user to be available on front end-->
       <li class="nav-item">
-        <a class="nav-link" href="#">Products <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/items">Products <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories
@@ -30,10 +30,18 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= fa_icon "shopping-cart 1x" %> <%= current_user.carts.last.cart_items.count %>
               </a>
-              <div class="dropdown-menu">
+              <div class="dropdown-menu cart-menu">
                 <% current_user.carts.last.cart_items.each do |item| %>
-                  <%= item.quantity %> <%= link_to item.item.name, item.item, class: 'dropdown-item'  %>
+                  <span class="item-left">
+                    <%= item.quantity %> 
+                  </span>
+                  <span class="item-right">
+                    <%= link_to item.item.name, item.item, class: 'dropdown-item'%>
+                  </span>
+                  <br>
                   <hr>
+
+                  
                 <% end %>
                 <%= link_to 'Check out', cart_path(current_user.carts.last.id), class: 'dropdown-item' %>
               </div>

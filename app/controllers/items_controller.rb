@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy, :same_user_item]
-  before_action :authorized, except: [:show, :search]
+  before_action :authorized, except: [:index, :show, :search]
   before_action :same_user_item, only: [:edit, :update]
+
+  def index
+    @items = Item.all
+  end
 
   def new
     @item = Item.new
@@ -33,7 +37,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.delete
-    redirect_to categories_path
+    redirect_to user_path(current_user)
   end
 
   def search
