@@ -1,7 +1,8 @@
 <div class='container-fluid'>
   <div class='row py-3 px-3'>
-    <div class='col-12 col-sm-8'>
-      <h3 class=''>Cart</h3>
+    <div class='col-12 col-sm-12 mx-left'>
+      <h3 class='display-4'>Cart</h3>
+      <hr>
       <table class="table table-hover">
         <thead class="thead-light">
         <tr>
@@ -21,8 +22,10 @@
         </tbody>
       </table>
       <hr>
-      Total: <%= number_to_currency(@total) %>
-      <%= button_to 'Pay now', checkout_create_path, method: :post, class:'btn btn-info', params: {cart: @cart, cart_items: @cart.cart_items, total: @total}, remote: true %>
+      <div class='col-12 col-sm-3'>
+        Total: <%= number_to_currency(@total) %>
+        <%= button_to 'Pay now', checkout_create_path, method: :post, class:'btn btn-info', params: {cart: @cart, cart_items: @cart.cart_items, total: @total}, remote: true %>
+      </div
     </div>
   </div>
 

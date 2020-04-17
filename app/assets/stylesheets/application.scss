@@ -4,6 +4,7 @@
 @import "./users.scss";
 @import "./items.scss";
 @import "./home.scss";
+@import "./carts.scss";
 
 
 a {
@@ -88,10 +89,27 @@ width: auto;
 
 .profile-heading {
   text-align: center;
-
 }
 
 // Item form
 .add-edit-item {
   margin-top: 40px;
+}
+
+// navbar
+.dropdown-menu {
+  width: 200px !important;
+}
+
+.item-left {
+  float:left;
+  margin-left: 3px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.item-right {
+  float:right;
+  margin-top: 5px;
+  margin-left: 0px;
 }
