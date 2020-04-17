@@ -21,6 +21,8 @@
         </tbody>
       </table>
       <hr>
-      Total: <%= @total %>
+      Total: <%= number_to_currency(@total) %>
+      <%= button_to 'Pay now', checkout_create_path, method: :post, class:'btn btn-info', params: {cart: @cart, cart_items: @cart.cart_items, total: @total}, remote: true %>
     </div>
   </div>
+
