@@ -35,6 +35,7 @@
                   <%= link_to item.item.name, item.item, class: 'dropdown-item' %> <%= item.quantity %>
                   <hr>
                 <% end %>
+                <%= link_to 'Check out', cart_path(current_user.carts.last.id) %>
               </div>
             </li>
           <% end %>
