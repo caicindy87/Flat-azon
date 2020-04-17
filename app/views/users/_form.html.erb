@@ -39,7 +39,9 @@
           <div class="form-group">
             <%= f.submit user.new_record? ? 'Create account' : 'Update account', class: 'btn btn-primary btn-block' %>
           </div>
-          <p>Already have an account? <%= link_to 'Sign in', login_path unless current_user %></p>
+          <% if !logged_in? %>
+            <p>Already have an account? <%= link_to 'Sign in', login_path unless current_user %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
