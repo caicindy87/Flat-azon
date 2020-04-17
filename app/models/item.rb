@@ -5,6 +5,7 @@ class Item < ApplicationRecord
     validates :name, :description, :price, :category, presence: true
     validates :description, length: { minimum: 5, maximum: 255 }
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+    validates :picture, format: {with: /\.(png|jpg)\Z/i}
     before_save :set_default_quantity
 
     def set_default_quantity
