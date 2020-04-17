@@ -1,26 +1,25 @@
 <%= render partial: 'shared/error', locals: { obj: item } %>
 
-<form>
 <h2 class="text-center"><%= item.new_record? ? 'Add Item' : 'Update Item' %></h2>
-    <%= form_for item do |f| %>
-        <%= f.label :name %><br>
-        <%= f.text_field :name, class: 'form-control', placeholder: 'Item name' %><br>
 
-        <%= f.label :quantity %><br>
-        <%= f.number_field :quantity, class: 'form-control', placeholder: 'Quantity' %><br>
+<%= form_for item do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Item name' %><br>
+
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity, class: 'form-control', placeholder: 'Quantity' %><br>
         
-        <%= f.label :price %><br>
-        <%= f.number_field :price, class: 'form-control', placeholder: 'Price' %><br>
+    <%= f.label :price %><br>
+    <%= f.number_field :price, class: 'form-control', placeholder: 'Price' %><br>
 
-        <%= f.label :description %><br>
-        <%= f.text_area :description, class: 'form-control', placeholder: 'Description'%><br>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Description'%><br>
 
-        <%= f.label :picture %><br>
-        <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
+    <%= f.label :picture %><br>
+    <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg'%><br>
 
-        <%= f.label :category_id %><br>
-        <%= f.collection_select :category_id, Category.all, :id, :name, {class: "custom-select"} %><br>
-        <br>
-        <%= f.submit %>
-    <% end %>
-</form>
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {class: "custom-select"} %><br>
+    <br>
+    <%= f.submit %>
+<% end %>
