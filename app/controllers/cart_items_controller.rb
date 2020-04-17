@@ -9,6 +9,9 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    # byebug
+    @cart.cart_items.find(params[:cart_item_id]).destroy
+    redirect_to @cart
   end
 
   private
