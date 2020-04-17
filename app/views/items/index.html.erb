@@ -1,8 +1,8 @@
-<h1 class="display-4 text-center"><%= @category.name %></h1>
+<h1 class="display-4 text-center">All Items</h1>
 <hr>
 <div class="container-fluid">
   <div class="row">
-    <% @category.items.each do |item| %>
+    <% @items.each do |item| %>
       <div class="col-md-3 mt-5">
         <div class="card">
          <img class="card-img-top" src="<%= item.picture %>" alt="Card image cap">

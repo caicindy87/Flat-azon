@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
   before_action :current_user, except: [:show]
   before_action :same_user_item, only: [:edit, :update]
 
+  def index
+    @items = Item.all
+  end
+
   def new
     @item = Item.new
   end
