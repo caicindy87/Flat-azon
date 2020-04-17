@@ -57,3 +57,4 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'toastr-rails'
 gem "font-awesome-rails"
+gem 'stripe'

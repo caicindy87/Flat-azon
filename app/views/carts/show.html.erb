@@ -1,5 +1,28 @@
-<h1>Cart</h1>
+<div class='container-fluid'>
+  <div class='row py-3 px-3'>
+    <div class='col-12 col-sm-8'>
+      <h3 class=''>Cart</h3>
+      <table class="table table-hover">
+        <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @cart.cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= cart_item.item.name %></td>
+            <td>x<%= cart_item.quantity %></td>
+            <td><%= cart_item.item.price %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <hr>
+      Total: <%= number_to_currency(@total) %>
+      <%= button_to 'Pay now', checkout_create_path, method: :post, class:'btn btn-info', params: {cart: @cart, cart_items: @cart.cart_items, total: @total}, remote: true %>
+    </div>
+  </div>
 
-<% cart.each do |cart_item| %>
-  <%= cart_item.name %>
-<% end %>

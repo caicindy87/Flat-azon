@@ -32,9 +32,10 @@
               </a>
               <div class="dropdown-menu">
                 <% current_user.carts.last.cart_items.each do |item| %>
-                  <%= link_to item.item.name, item.item, class: 'dropdown-item' %> <%= item.quantity %>
+                  <%= item.quantity %> <%= link_to item.item.name, item.item, class: 'dropdown-item'  %>
                   <hr>
                 <% end %>
+                <%= link_to 'Check out', cart_path(current_user.carts.last.id), class: 'dropdown-item' %>
               </div>
             </li>
           <% end %>

@@ -18,5 +18,9 @@ Rails.application.routes.draw do
   
   get '/search' => 'items#search', :as => 'search_item'
 
+  post 'create', to: 'checkout#create', as: 'checkout_create'
+  get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  get 'success', to: 'checkout#success', as: 'checkout_success'
+
 
 end
